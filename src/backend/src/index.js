@@ -4,7 +4,8 @@ const routes = require('./routes');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-2ajzh.mongodb.net/week10?retryWrites=true&w=majority', {
+// mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-2ajzh.mongodb.net/week10?retryWrites=true&w=majority', {
+mongoose.connect('mongodb://localhost:27017/week10', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 });
