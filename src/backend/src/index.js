@@ -1,9 +1,14 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const http = require('http');
 const routes = require('./routes');
+const { setupWebsocket } = require('./websocket');
 
 const app = express();
+const server = http.Server(app);
+
+setupWebsocket(server);
 
 mongoose.connect('mongodb+srv://omnistack:omnistack@cluster0-2ajzh.mongodb.net/week10?retryWrites=true&w=majority', {
 // mongoose.connect('mongodb://localhost:27017/week10', {
@@ -23,4 +28,4 @@ app.use(routes);
 // MongoDB (Não-relacional)
 // Mongoose dá acesso ao Node (aplicação) há uma base de dados MongoDB
 
-app.listen(3333);
+server.listen(3333);
